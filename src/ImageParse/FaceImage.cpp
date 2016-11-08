@@ -1,15 +1,16 @@
 #include"FaceImage.hpp"
 
 using namespace std;
-int **allocateData(int row,int col){
-    int **returnData;
-    returnData=(int **)malloc(row*sizeof(int*));
+int dummy;
+float **allocateData(int row,int col){
+    float **returnData;
+    returnData=(float **)malloc(row*sizeof(float*));
     if(returnData==NULL){
         perror("Could Not Allocate Memory");
         exit(EXIT_FAILURE);
     }
     for(int i=0;i<col;i++){
-        returnData[i]=(int *)malloc(sizeof(int)*col);
+        returnData[i]=(float *)malloc(sizeof(float)*col);
         if(returnData[i]==NULL){
             perror("Could Not allocate Memory");
             exit(EXIT_FAILURE);
@@ -18,7 +19,7 @@ int **allocateData(int row,int col){
     return returnData;
 }
 
-void freeData(int **data,int row){
+void freeData(float **data,int row){
     for(int i=0;i<row;i++)
         free(data[i]);
     free(data);
@@ -36,7 +37,8 @@ IMAGE *imageAllocate(){
 
 IMAGE *readFile(char *filename){
     FILE *imageFile;
-    char line[512],pixel;
+    char line[512];
+    float pixel;
     int type,rows,cols,grays;
     IMAGE *newImage;
 
@@ -60,6 +62,8 @@ IMAGE *readFile(char *filename){
     
     fgets(line,sizeof(line),imageFile);
     sscanf(line,"%d %d",&cols,&rows);
+
+
     newImage->nRows=rows;
     newImage->nCols=cols;
     
@@ -74,10 +78,11 @@ IMAGE *readFile(char *filename){
     
     newImage->data=allocateData(rows,cols);
     
+    
     for(int i=0;i<rows;i++){
         for(int j=0;j<cols;j++){
             pixel=fgetc(imageFile);
-            newImage->data[i][j]=pixel;
+            newImage->data[i][j]=(pixel)/255.0f;
         }
     }
     
@@ -115,7 +120,7 @@ int giveSunglassLabel(char label[]){
 }
 
 
-int allocateExamples(list<IMAGE *> *trainingExamples,list<int> *labels,int labelIndex, char *ListFile){
+int allocateExamples(list<IMAGE *> *trainingExamples,list<vector<float> > *labels,int labelIndex, char *ListFile){
     //!Label Index (indexed at 0) Specifies which field of file name is label
     //! Face is 0
     //! Pose is 1
@@ -126,6 +131,9 @@ int allocateExamples(list<IMAGE *> *trainingExamples,list<int> *labels,int label
     const int index=strlen(file);
     char *label;
     int NumOfExamples=0;
+    static const float Pose[][4] = { {0.9,0.1,0.1,0.1},{0.1,0.9,0.1,0.1},{0.1,0.1,0.9,0.1},{0.1,0.1,0.1,0.9} };
+    static const float Sunglass[][2] = { {0.9,0.1},{0.1,0.9} };
+
     
     if(!(imageList=fopen(ListFile,"r"))){
         perror("Could Not Open List File");
@@ -141,16 +149,21 @@ int allocateExamples(list<IMAGE *> *trainingExamples,list<int> *labels,int label
     while(fgets(line,sizeof(line),imageList)){
         NumOfExamples++;
         file[index-1]='\0';
+        
         strcat(file,line);
         file[strlen(file)-1]='\0';
         (trainingExamples)->push_back(readFile(file));
         label=strtok(line,"_");
         
-        for(int i=0;i<labelIndex;i++)
+        for(int i=0;i<labelIndex;i++){
             label=strtok(NULL,"_");
+        }
         
-        if(labelIndex==1)
-            labels->push_back(givePoseLabel(label));
+        if(labelIndex==1){
+            int l=givePoseLabel(label);
+            labels->push_back(vector<float>(Pose[l],Pose[l] + 4));
+            
+        }
     }
     
     fclose(imageList);

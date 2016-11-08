@@ -24,17 +24,23 @@ float sigmoid(float input);
 
 void generateOutput(node *current,list<int> inputs);
 
-void feedForward( list<list <node *> > *NetworkNodes,list<int> inp);
+void feedForward( list<list <node *> > *NetworkNodes,list<float> inp);
+
+void update(list<list<node *> > *NetworkNodes,float LearningRate);
+
+void backProp(list<list <node *> > *NetworkNodes, vector<float> label);
 
 void generateError(node *current,list<node*> downstream);
 
 void generateError(node *current,float label);
 
-void CreateNetwork(list<list <node *> > *NetworkNodes,list<int> layerNodes,int inputs);
+void CreateNetwork(list<list <node *> > *NetworkNodes,list<int> layerNodes,int inputs,int outputs);
 
-list<int> BackpropogationDriver(list<IMAGE *> *trainingExamples,list<int> *labels,int inputs,int iterations,list<int> layerNodes,int NumOfExamples,float LearningRate);
+list<list<node *> > BackpropogationDriver(list<IMAGE *> *trainingExamples,list<vector<float> > *labels,int inputs,int iterations,list<int> layerNodes,int NumOfExamples,float LearningRate,int outputs);
 
+float predict(list<list<node *> > LearnedNetwork, list<IMAGE *> instances, list<vector<float> > labels);
 
+int max(vector<float> outs);
 
 
 

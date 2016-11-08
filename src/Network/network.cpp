@@ -4,46 +4,41 @@ float sigmoid(float x)
     float exp_value;
     float return_value;
     
-    exp_value = exp((double) -x);
+    exp_value = exp((double) -1*x);
     
     return_value = 1 / (1 + exp_value);
-    
     return return_value;
 }
 
-void generateOutput(node *current,list<node*> inputs){
-    float net=0;
-    int index=0;
-    float wt;
-    (current->inputs)->clear();
-    for(node *input:inputs){
-        wt=(current->weights)->at(index++);
-        net= net + (wt)*(input->output);
-        (current->inputs)->push_back(input->output);
-    }
-    current->output=sigmoid(net);
-}
 
-void generateOutput(node *current,list<int> inputs){
+void generateOutput(node *current,list<float> inputs){
     float net=0;
     int index=0;
     float wt;
     current->inputs->clear();
-    for(int input:inputs){
+    
+    for(float input:inputs){
+        //mcout<<input<<" ";
         wt=(current->weights)->at(index++);
         //cout<<wt<<" "<<input<<endl;
-        net= net + (wt)*((float)input);
-        (current->inputs)->push_back((float)input);
-       // cout<<net<< " ";
+        net= net + (wt)*(input);
+        (current->inputs)->push_back(input);
     }
+    //cout<<endl<<endl<<endl;
     current->output=sigmoid(net);
-    //cout<<sigmoid(net)<<endl;
+   
 }
 
 
 void generateError(node *current,float label){
     float out=current->output;
+    /*if((current->layerIndex)==3)
+        cout<<current->output<<" "<<label<<endl;
+    else
+        cout<<"\nLayer Index: "<<current->layerIndex<<endl;*/
     current->error = (label-out)*(1-out)*out;
+   // cout<<label<<" "<<out<<" "<<current->error<<endl;
+
 }
 
 void generateError(node *current, list<node*> downstream){
@@ -54,6 +49,7 @@ void generateError(node *current, list<node*> downstream){
 
     for(node* ds:downstream)
         multiplier= multiplier + (ds->error) * ((ds->weights)->at(index));
+    
     current->error=out * (1-out) *multiplier;
     
 }
@@ -74,92 +70,179 @@ node *allocateNode(int index,int inputs){
     return temp;
 }
 
-void CreateNetwork(list<list <node *> > *NetworkNodes,list<int> layerNodes,int inputs){
+void CreateNetwork(list<list <node *> > *NetworkNodes,list<int> layerNodes,int inputs,int outputs){
     int counter=0,prev=inputs;
+    
     list<node *> temp;
+    
     for(int layer:layerNodes){
+        
         temp.clear();
+        
         for(int i=0;i<layer;i++)
             temp.push_back(allocateNode( i,prev));
         (NetworkNodes)->push_back(temp);
         counter++;
-        prev=layer;
+        prev=layer+1;
     }
     temp.clear();
-    temp.push_back(allocateNode(0,prev));
+    for(int i=0;i<outputs;i++)
+        temp.push_back(allocateNode(i,prev));
+    
     NetworkNodes->push_back(temp);
-    temp.clear();
 }
 
-void feedForward( list<list <node *> > *NetworkNodes,list<int> inp){
-    list<int> inp2;
+void feedForward( list<list <node *> > *NetworkNodes,list<float> inp){
+    list<float> inp2;
     
     
     int counter=0;
     int number;
     for(list<node*> layer: *NetworkNodes){
-        //cout<<"\nLayer "<<counter++;
         inp2.clear();
+        inp2.push_back(1);
         number=0;
         for(node *NODE : layer){
-         //   cout<<"\n\tNode "<<number++;
             generateOutput(NODE,inp);
             inp2.push_back(NODE->output);
         }
-        inp.clear();
         inp=inp2;
     }
 
 }
 
-void backProp(list<list <node *> > *NetworkNodes, int label){
+void backProp(list<list <node *> > *NetworkNodes, vector<float> label){
     
     int counter=0;
-    list<node *> downstream;
+    int labelIndex=0;
+    
+    list<node *> downstream,dstemp,layer;
+    
     for (list<list<node *> >::reverse_iterator i = NetworkNodes->rbegin(); i != NetworkNodes->rend(); ++i){
-        list<node *> layer= *(i);
+        
+        layer= *(i);
+        downstream=dstemp;
+        dstemp.clear();
+        //cin>>counter;
+
+//        cout<<"\nSize: "<<layer.size()<<endl;
         for(node *NODE: layer){
-            if(counter==0){
-                counter++;
-                generateError(NODE,label);
+            dstemp.push_back(NODE);
+            
+            if(i==NetworkNodes->rbegin()){
+                //cout<<"Label: "<<label.at(labelIndex);
+                generateError(NODE,label.at(labelIndex++));
+               //cout<<"\nOutput Error "<< NODE->error<<"\n";
             }
             else{
                 generateError(NODE,downstream);
+               // cout<<"\nHidden Error "<< NODE->error<<" "<<downstream.size();
             }
-            downstream.clear();
-            downstream=layer;
           //  cout<<NODE->error<<endl;
-            
         }
     }
 }
 
 void update(list<list<node *> > *NetworkNodes,float LearningRate){
-
+    int in;
     for(list<node*> layer: *NetworkNodes){
         for(node *NODE : layer){
             int limit=(NODE->inputs)->size();
-            for(int i=0;i<limit;i++)
-                (NODE->weights)->at(i)=((NODE->weights)->at(i)) +(NODE->error * (NODE->inputs)->at(i) *LearningRate);
+            for(int i=0;i<limit;i++){
+                //cin>>in;
+                float save= NODE->weights->at(i);
+                (*(NODE->weights))[i]=save +(NODE->error * (NODE->inputs)->at(i) *LearningRate);
+                //cout<<" "<<save-NODE->weights->at(i)<<endl;
+
+            }
         }
     }
 
 }
 
-list<int> BackpropogationDriver(list<IMAGE *> *trainingExamples,list<int> *labels,int inputs,int iterations,list<int> layerNodes,int NumOfExamples,float LearningRate){
+
+int max(vector<float> outs){
+    float max=0;
+    int ret=-1;
+    for(int i=0;i<outs.size();i++){
+        if(outs[i] > max){
+            ret=i;
+            max=outs[i];
+        }
+    }
+    return ret;
+}
+
+float predict(list<list<node *> > LearnedNetwork,list<IMAGE *> instances, list<vector<float> > labels){
+    
+    float correct=0.0f,wrong=0.0f,accuracy;
+    float total=0.0f;
+
+    list<vector<float> >::iterator it=labels.begin();
+    list<float> inp;
+    vector<float> outs;
+    
+    int learn,lab;
+    
+    for(IMAGE *current : instances){
+        
+        inp.clear();
+        inp.push_back(1);
+        outs.clear();
+        
+        for(int i=0;i<30;i++){
+            for(int j=0;j<32;j++){
+                inp.push_back(current->data[i][j]);
+            }
+        }
+        
+        feedForward(&LearnedNetwork,inp);
+        
+        for(node *N : LearnedNetwork.back())
+            outs.push_back(N->output);
+        
+        learn=max(outs);
+        
+        for(int i=0;i<4;i++){
+            if((*it).at(i) == 0.9f)
+                lab=i;
+        }
+        total=total+1.0f;
+        if(learn == lab)
+            correct=correct+1.0f;
+        else
+            wrong=wrong+1.0f;
+        
+        it++;
+    }
+    return (correct)/(total);
+    
+
+    
+}
+
+
+list< list<node *> >  BackpropogationDriver(list<IMAGE *> *trainingExamples,list<vector<float> > *labels,int inputs,int iterations,list<int> layerNodes,int NumOfExamples,float LearningRate,int outputs){
     
     list< list<node *> > NetworkNodes;
     IMAGE *current;
-    CreateNetwork(&NetworkNodes,layerNodes,inputs);
-    list<int> predictions;
-    
+    CreateNetwork(&NetworkNodes,layerNodes,inputs,outputs);
+    list<float> inp;
+    list<vector<float> >::iterator it;
     for( int iter=0;iter<iterations;iter++){
-        predictions.clear();
-        list<int>::iterator it=labels->begin();
+
+        it=labels->begin();
+        
         cout<<"Iteration "<<iter<<endl;
+        
         for(IMAGE *current : *trainingExamples){
-            
-            list<int> inp(current->data[0],(current->data[0])+inputs);
+            inp.clear();
+            inp.push_back(1);
+            for(int i=0;i<30;i++){
+                for(int j=0;j<32;j++){
+                    inp.push_back(current->data[i][j]);
+                }
+            }
             feedForward(&NetworkNodes,inp);
             
             backProp(&NetworkNodes,*it);
@@ -168,7 +251,8 @@ list<int> BackpropogationDriver(list<IMAGE *> *trainingExamples,list<int> *label
 
             it++;
         }
-        
+        cout<<"Complete\n";
+                
     }
-    return predictions;
+    return NetworkNodes;
 }

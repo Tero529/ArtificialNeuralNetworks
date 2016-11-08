@@ -4,23 +4,24 @@
 #include<iostream>
 #include<stdio.h>
 #include<stdlib.h>
+#include<math.h>
 #include<list>
-
+#include<vector>
 
 using namespace std;
 typedef struct{
-    int **data;
+    float **data;
     int nRows;
     int nCols;
     int maxGray;
 }IMAGE;
 
-int **allocateData(int row,int col);
-void freeData(int **data,int row);
+float **allocateData(int row,int col);
+void freeData(float **data,int row);
 IMAGE *imageAllocate();
 IMAGE *readFile(char *filename);
 
-int allocateExamples(list<IMAGE *> *trainingExamples,list<int> *labels, int labelIndex,char *imageList);
+int allocateExamples(list<IMAGE *> *trainingExamples,list<vector<float> > *labels, int labelIndex,char *imageList);
 
 int givePoseLabel(char label[]);
 
