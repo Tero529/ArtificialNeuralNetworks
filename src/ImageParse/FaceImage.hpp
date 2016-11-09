@@ -17,15 +17,16 @@ typedef struct{
 }IMAGE;
 
 float **allocateData(int row,int col);
-void freeData(float **data,int row);
+
 IMAGE *imageAllocate();
+
 IMAGE *readFile(char *filename);
 
 int allocateExamples(list<IMAGE *> *trainingExamples,list<vector<float> > *labels, int labelIndex,char *imageList);
 
 int givePoseLabel(char label[]);
 
-int giveFaceLabel(char lable[]);
+int giveFaceLabel(char token[]);
 
 int giveSunglassLabel(char label[]);
 

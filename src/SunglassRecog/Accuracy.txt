@@ -1,0 +1,5 @@
+---100 iterations at Learning Rate 0.3 Using 6 Hidden Units---
+
+Accuracy First Set 0.970588
+Accuracy Second Set 0.923077
+Accuracy Average Set 0.946833

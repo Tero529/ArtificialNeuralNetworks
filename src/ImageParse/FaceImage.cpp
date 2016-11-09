@@ -1,7 +1,8 @@
 #include"FaceImage.hpp"
 
 using namespace std;
-int dummy;
+
+
 float **allocateData(int row,int col){
     float **returnData;
     returnData=(float **)malloc(row*sizeof(float*));
@@ -19,11 +20,6 @@ float **allocateData(int row,int col){
     return returnData;
 }
 
-void freeData(float **data,int row){
-    for(int i=0;i<row;i++)
-        free(data[i]);
-    free(data);
-}
 
 IMAGE *imageAllocate(){
     IMAGE *retVal;
@@ -119,6 +115,24 @@ int giveSunglassLabel(char label[]){
     
 }
 
+int giveFaceLabel(char token[]){
+    
+    char labels[] ="an2i,at33,boland,bpm,ch4f,cheyer,choon,danieln,glickman,karyadi,kawamura,kk49,megak,mitchell,night,phoebe,saavik,steffi,sz24,tammo";
+    char *label;
+    int counter=0;
+    label=strtok(labels,",");
+    while(label){
+        
+        if(strcmp(token,label)==0){
+            return counter;
+        }
+        
+        label=strtok(NULL,",");
+        counter++;
+    }
+    return -1;
+    
+}
 
 int allocateExamples(list<IMAGE *> *trainingExamples,list<vector<float> > *labels,int labelIndex, char *ListFile){
     //!Label Index (indexed at 0) Specifies which field of file name is label
@@ -133,7 +147,7 @@ int allocateExamples(list<IMAGE *> *trainingExamples,list<vector<float> > *label
     int NumOfExamples=0;
     static const float Pose[][4] = { {0.9,0.1,0.1,0.1},{0.1,0.9,0.1,0.1},{0.1,0.1,0.9,0.1},{0.1,0.1,0.1,0.9} };
     static const float Sunglass[][2] = { {0.9,0.1},{0.1,0.9} };
-
+    float FaceL[20]={0.1f, 0.1f, 0.1f, 0.1f, 0.1f, 0.1f, 0.1f, 0.1f, 0.1f, 0.1f, 0.1f, 0.1f, 0.1f, 0.1f, 0.1f, 0.1f, 0.1f, 0.1f, 0.1f, 0.1f};
     
     if(!(imageList=fopen(ListFile,"r"))){
         perror("Could Not Open List File");
@@ -154,15 +168,31 @@ int allocateExamples(list<IMAGE *> *trainingExamples,list<vector<float> > *label
         file[strlen(file)-1]='\0';
         (trainingExamples)->push_back(readFile(file));
         label=strtok(line,"_");
+
+        if(labelIndex==0){
+            int j=strlen(label)-1;
+            while(label[j--]!='/');
+            label=&label[j+2];
+        }
         
+        //cout<<label<<endl;
         for(int i=0;i<labelIndex;i++){
             label=strtok(NULL,"_");
         }
         
-        if(labelIndex==1){
+        if(labelIndex==0){
+            int l=giveFaceLabel(label);
+            FaceL[l]=0.9f;
+            labels->push_back(vector<float>(FaceL,FaceL + 20));
+            FaceL[l]=0.1f;
+        }
+        else if(labelIndex==1){
             int l=givePoseLabel(label);
             labels->push_back(vector<float>(Pose[l],Pose[l] + 4));
-            
+        }
+        else if(labelIndex==3) {
+            int l=giveSunglassLabel(label);
+            labels->push_back(vector<float>(Sunglass[l],Sunglass[l] +2));
         }
     }
     

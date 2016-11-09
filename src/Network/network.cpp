@@ -150,6 +150,7 @@ void update(list<list<node *> > *NetworkNodes,float LearningRate){
             int limit=(NODE->inputs)->size();
             for(int i=0;i<limit;i++){
                 //cin>>in;
+                //cout<<"index "<<i<<endl;
                 float save= NODE->weights->at(i);
                 (*(NODE->weights))[i]=save +(NODE->error * (NODE->inputs)->at(i) *LearningRate);
                 //cout<<" "<<save-NODE->weights->at(i)<<endl;
@@ -173,7 +174,7 @@ int max(vector<float> outs){
     return ret;
 }
 
-float predict(list<list<node *> > LearnedNetwork,list<IMAGE *> instances, list<vector<float> > labels){
+float predict(list<list<node *> > LearnedNetwork,list<IMAGE *> instances, list<vector<float> > labels,int outputs){
     
     float correct=0.0f,wrong=0.0f,accuracy;
     float total=0.0f;
@@ -203,7 +204,7 @@ float predict(list<list<node *> > LearnedNetwork,list<IMAGE *> instances, list<v
         
         learn=max(outs);
         
-        for(int i=0;i<4;i++){
+        for(int i=0;i<outputs;i++){
             if((*it).at(i) == 0.9f)
                 lab=i;
         }
@@ -222,18 +223,18 @@ float predict(list<list<node *> > LearnedNetwork,list<IMAGE *> instances, list<v
 }
 
 
-list< list<node *> >  BackpropogationDriver(list<IMAGE *> *trainingExamples,list<vector<float> > *labels,int inputs,int iterations,list<int> layerNodes,int NumOfExamples,float LearningRate,int outputs){
+list< list<node *> >  BackpropogationDriver(list<IMAGE *> *trainingExamples,list<vector<float> > *labels,int inputs,int iterations,list<int> layerNodes,float LearningRate,int outputs){
     
     list< list<node *> > NetworkNodes;
     IMAGE *current;
     CreateNetwork(&NetworkNodes,layerNodes,inputs,outputs);
     list<float> inp;
     list<vector<float> >::iterator it;
-    for( int iter=0;iter<iterations;iter++){
+    //cout<<"Begun ...\n";
 
-        it=labels->begin();
-        
+    for( int iter=0;iter<iterations;iter++){
         cout<<"Iteration "<<iter<<endl;
+        it=labels->begin();
         
         for(IMAGE *current : *trainingExamples){
             inp.clear();
@@ -251,8 +252,9 @@ list< list<node *> >  BackpropogationDriver(list<IMAGE *> *trainingExamples,list
 
             it++;
         }
-        cout<<"Complete\n";
-                
+        
     }
+    //cout<<"Complete\n";
+
     return NetworkNodes;
 }
