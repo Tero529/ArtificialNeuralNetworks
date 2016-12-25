@@ -1,0 +1,63 @@
+Nodes 14 Learning Rate 0.4 Iterations 100
+Accuracy First Set 0.884892
+Accuracy Second Set 0.918269
+Accuracy Average Set 0.901581
+
+Nodes 14 Learning Rate 0.4 Iterations 300
+Accuracy First Set 0.906475
+Accuracy Second Set 0.913462
+Accuracy Average Set 0.909968
+
+Nodes 14 Learning Rate 0.55 Iterations 100
+Accuracy First Set 0.870504
+Accuracy Second Set 0.903846
+Accuracy Average Set 0.887175
+
+Nodes 14 Learning Rate 0.55 Iterations 300
+Accuracy First Set 0.906475
+Accuracy Second Set 0.889423
+Accuracy Average Set 0.897949
+
+Nodes 14 Learning Rate 0.7 Iterations 100
+Accuracy First Set 0.935252
+Accuracy Second Set 0.932692
+Accuracy Average Set 0.933972
+
+Nodes 14 Learning Rate 0.7 Iterations 300
+Accuracy First Set 0.748201
+Accuracy Second Set 0.836538
+Accuracy Average Set 0.79237
+
+Nodes 21 Learning Rate 0.4 Iterations 100
+Accuracy First Set 0.920863
+Accuracy Second Set 0.932692
+Accuracy Average Set 0.926778
+
+Nodes 21 Learning Rate 0.4 Iterations 300
+Accuracy First Set 0.913669
+Accuracy Second Set 0.923077
+Accuracy Average Set 0.918373
+
+Nodes 21 Learning Rate 0.55 Iterations 100
+Accuracy First Set 0.913669
+Accuracy Second Set 0.932692
+Accuracy Average Set 0.923181
+
+Nodes 21 Learning Rate 0.55 Iterations 300
+Accuracy First Set 0.928058
+Accuracy Second Set 0.966346
+Accuracy Average Set 0.947202
+
+Nodes 21 Learning Rate 0.7 Iterations 100
+Accuracy First Set 0.928058
+Accuracy Second Set 0.923077
+Accuracy Average Set 0.925567
+
+Nodes 21 Learning Rate 0.7 Iterations 300
+Accuracy First Set 0.906475
+Accuracy Second Set 0.927885
+Accuracy Average Set 0.91718
+
+Maximum Accuracy on Set 1 is 0.935252 with Nodes 14 Learning Rate 0.7 Iterations 100
+Maximum Accuracy on Set 2 is 0.966346 with Nodes 21 Learning Rate 0.55 Iterations 300
+Maximum Average Accuracy is 0.947202 with Nodes 21 Learning Rate 0.55 Iterations 300

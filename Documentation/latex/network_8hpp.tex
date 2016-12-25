@@ -1,0 +1,246 @@
+\hypertarget{network_8hpp}{}\section{src/\+Network/network.hpp File Reference}
+\label{network_8hpp}\index{src/\+Network/network.\+hpp@{src/\+Network/network.\+hpp}}
+{\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include $<$math.\+h$>$}\newline
+{\ttfamily \#include $<$string.\+h$>$}\newline
+{\ttfamily \#include $<$list$>$}\newline
+{\ttfamily \#include $<$vector$>$}\newline
+{\ttfamily \#include \char`\"{}../\+Image\+Parse/\+Face\+Image.\+hpp\char`\"{}}\newline
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{structnode}{node}
+\begin{DoxyCompactList}\small\item\em Representation of a Network node. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+list$<$ list$<$ \hyperlink{structnode}{node} $\ast$ $>$ $>$ \hyperlink{network_8hpp_ab01003e946ba3fbee7b5dcb23bc5f517}{Backpropogation\+Driver} (list$<$ \hyperlink{struct_i_m_a_g_e}{I\+M\+A\+GE} $\ast$$>$ $\ast$training\+Examples, list$<$ vector$<$ float $>$ $>$ $\ast$labels, int inputs, int iterations, list$<$ int $>$ layer\+Nodes, float Learning\+Rate, int outputs)
+\begin{DoxyCompactList}\small\item\em Driver Function for learning the Neural Network. \end{DoxyCompactList}\item 
+float \hyperlink{network_8hpp_a50a5155516fd656f45421e6817357b49}{predict} (list$<$ list$<$ \hyperlink{structnode}{node} $\ast$$>$ $>$ Learned\+Network, list$<$ \hyperlink{struct_i_m_a_g_e}{I\+M\+A\+GE} $\ast$$>$ instances, list$<$ vector$<$ float $>$ $>$ labels, int outputs)
+\begin{DoxyCompactList}\small\item\em Gives the prediction accuracy of a Network on a Test Set. \end{DoxyCompactList}\item 
+void \hyperlink{network_8hpp_ae1558ccce5abde29f86c580c9d807234}{feed\+Forward} (list$<$ list$<$ \hyperlink{structnode}{node} $\ast$$>$ $>$ $\ast$Network\+Nodes, list$<$ float $>$ inp)
+\begin{DoxyCompactList}\small\item\em Feeds an instance through an arbitrary network to generate an output. \end{DoxyCompactList}\item 
+\hypertarget{network_8hpp_a103cdcf5622560ec8a1d8c9e5ee37297}{}\label{network_8hpp_a103cdcf5622560ec8a1d8c9e5ee37297} 
+void {\bfseries generate\+Output} (\hyperlink{structnode}{node} $\ast$current, list$<$ int $>$ inputs)
+\item 
+void \hyperlink{network_8hpp_a7155df24bb8efb6d0b5881a494e1da04}{back\+Prop} (list$<$ list$<$ \hyperlink{structnode}{node} $\ast$$>$ $>$ $\ast$Network\+Nodes, vector$<$ float $>$ label)
+\begin{DoxyCompactList}\small\item\em Propogates the errors backwards through an arbitrary given Network. \end{DoxyCompactList}\item 
+void \hyperlink{network_8hpp_a93ce8bef732fd0a9dd5ec7abf037b978}{generate\+Error} (\hyperlink{structnode}{node} $\ast$current, list$<$ \hyperlink{structnode}{node} $\ast$$>$ downstream)
+\begin{DoxyCompactList}\small\item\em Sets the error of a non output network node. \end{DoxyCompactList}\item 
+void \hyperlink{network_8hpp_a802001a439bf4d4bb0b3afad7547b804}{generate\+Error} (\hyperlink{structnode}{node} $\ast$current, float label)
+\begin{DoxyCompactList}\small\item\em Sets the error of an output node. \end{DoxyCompactList}\item 
+void \hyperlink{network_8hpp_a090940f06a6c4b23d03afca1d8b2cf10}{update} (list$<$ list$<$ \hyperlink{structnode}{node} $\ast$$>$ $>$ $\ast$Network\+Nodes, float Learning\+Rate)
+\begin{DoxyCompactList}\small\item\em Updates the Network according to the gradient descent rule. \end{DoxyCompactList}\item 
+\hyperlink{structnode}{node} $\ast$ \hyperlink{network_8hpp_a22e08c3d896915b672c0d21ca26c78cf}{allocate\+Node} (int index, int inputs)
+\begin{DoxyCompactList}\small\item\em Intiliases a network node with random weights. \end{DoxyCompactList}\item 
+\hypertarget{network_8hpp_aa20134f5fe893e3014529d5152317711}{}\label{network_8hpp_aa20134f5fe893e3014529d5152317711} 
+float \hyperlink{network_8hpp_aa20134f5fe893e3014529d5152317711}{sigmoid} (float input)
+\begin{DoxyCompactList}\small\item\em Returns the sigmoid of the given float value. \end{DoxyCompactList}\item 
+void \hyperlink{network_8hpp_a2a8c97babcc01d2d1074e368b60136b4}{Create\+Network} (list$<$ list$<$ \hyperlink{structnode}{node} $\ast$$>$ $>$ $\ast$Network\+Nodes, list$<$ int $>$ layer\+Nodes, int inputs, int outputs)
+\begin{DoxyCompactList}\small\item\em Creates an Empty Network of nodes with given specifications. \end{DoxyCompactList}\item 
+int \hyperlink{network_8hpp_a86903efb5ab550f599618eec172c9e52}{max} (vector$<$ float $>$ outs)
+\begin{DoxyCompactList}\small\item\em Gives the classified integer from vector outputs. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Function Documentation}
+\hypertarget{network_8hpp_a22e08c3d896915b672c0d21ca26c78cf}{}\label{network_8hpp_a22e08c3d896915b672c0d21ca26c78cf} 
+\index{network.\+hpp@{network.\+hpp}!allocate\+Node@{allocate\+Node}}
+\index{allocate\+Node@{allocate\+Node}!network.\+hpp@{network.\+hpp}}
+\subsubsection{\texorpdfstring{allocate\+Node()}{allocateNode()}}
+{\footnotesize\ttfamily \hyperlink{structnode}{node}$\ast$ allocate\+Node (\begin{DoxyParamCaption}\item[{int}]{index,  }\item[{int}]{inputs }\end{DoxyParamCaption})}
+
+
+
+Intiliases a network node with random weights. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em index} & The index of the ndoe within the layer \\
+\hline
+{\em inputs} & The number of inputs to the node (required to initialise that many weights) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+node An empty node with random weights between -\/0.\+5 and 0.\+5 
+\end{DoxyReturn}
+\hypertarget{network_8hpp_a7155df24bb8efb6d0b5881a494e1da04}{}\label{network_8hpp_a7155df24bb8efb6d0b5881a494e1da04} 
+\index{network.\+hpp@{network.\+hpp}!back\+Prop@{back\+Prop}}
+\index{back\+Prop@{back\+Prop}!network.\+hpp@{network.\+hpp}}
+\subsubsection{\texorpdfstring{back\+Prop()}{backProp()}}
+{\footnotesize\ttfamily void back\+Prop (\begin{DoxyParamCaption}\item[{list$<$ list$<$ \hyperlink{structnode}{node} $\ast$$>$ $>$ $\ast$}]{Network\+Nodes,  }\item[{vector$<$ float $>$}]{label }\end{DoxyParamCaption})}
+
+
+
+Propogates the errors backwards through an arbitrary given Network. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Network\+Nodes} & The Network whose errors are to be set and back propogated \\
+\hline
+{\em label} & A vector of the labels of the traiing example which has been fed forward in the current iteration \\
+\hline
+\end{DoxyParams}
+\hypertarget{network_8hpp_ab01003e946ba3fbee7b5dcb23bc5f517}{}\label{network_8hpp_ab01003e946ba3fbee7b5dcb23bc5f517} 
+\index{network.\+hpp@{network.\+hpp}!Backpropogation\+Driver@{Backpropogation\+Driver}}
+\index{Backpropogation\+Driver@{Backpropogation\+Driver}!network.\+hpp@{network.\+hpp}}
+\subsubsection{\texorpdfstring{Backpropogation\+Driver()}{BackpropogationDriver()}}
+{\footnotesize\ttfamily list$<$list$<$\hyperlink{structnode}{node} $\ast$$>$ $>$ Backpropogation\+Driver (\begin{DoxyParamCaption}\item[{list$<$ \hyperlink{struct_i_m_a_g_e}{I\+M\+A\+GE} $\ast$$>$ $\ast$}]{training\+Examples,  }\item[{list$<$ vector$<$ float $>$ $>$ $\ast$}]{labels,  }\item[{int}]{inputs,  }\item[{int}]{iterations,  }\item[{list$<$ int $>$}]{layer\+Nodes,  }\item[{float}]{Learning\+Rate,  }\item[{int}]{outputs }\end{DoxyParamCaption})}
+
+
+
+Driver Function for learning the Neural Network. 
+
+Performs the backpropogation algorithm for a given number of iterations to learn a Neural network of given specifications over given training data. 
+\begin{DoxyParams}{Parameters}
+{\em training\+Examples} & The list of \hyperlink{struct_i_m_a_g_e}{I\+M\+A\+GE} training examples which are to be learned from \\
+\hline
+{\em labels} & The labels corresponding to the \hyperlink{struct_i_m_a_g_e}{I\+M\+A\+GE} training examples in the same order. \\
+\hline
+{\em inputs} & The Number of Inputs to the network \\
+\hline
+{\em iterations} & The iterations of the backpropogation algorithm to stop after \\
+\hline
+{\em layer\+Nodes} & A list containing the number of nodes in each hidden layer from innermost to outermost. ~\newline
+ The last entry of the list corresponds to the layer right before the output layer \\
+\hline
+{\em Learning\+Rate} & The learning Rate for updation \\
+\hline
+{\em outputs} & The number of output nodes. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A list of layers of the learned network from innermost to outermost, the end of the list specifies the output layer. ~\newline
+ Each layer consists of a list of network nodes in the order of their layer Index. 
+\end{DoxyReturn}
+\hypertarget{network_8hpp_a2a8c97babcc01d2d1074e368b60136b4}{}\label{network_8hpp_a2a8c97babcc01d2d1074e368b60136b4} 
+\index{network.\+hpp@{network.\+hpp}!Create\+Network@{Create\+Network}}
+\index{Create\+Network@{Create\+Network}!network.\+hpp@{network.\+hpp}}
+\subsubsection{\texorpdfstring{Create\+Network()}{CreateNetwork()}}
+{\footnotesize\ttfamily void Create\+Network (\begin{DoxyParamCaption}\item[{list$<$ list$<$ \hyperlink{structnode}{node} $\ast$$>$ $>$ $\ast$}]{Network\+Nodes,  }\item[{list$<$ int $>$}]{layer\+Nodes,  }\item[{int}]{inputs,  }\item[{int}]{outputs }\end{DoxyParamCaption})}
+
+
+
+Creates an Empty Network of nodes with given specifications. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Network\+Nodes} & The network that is to be created. Represented as a list of layers, each of which is a list of nodes. \\
+\hline
+{\em layer\+Nodes} & A list of integers with each value corresponding to the number of nodes in that layer. From innermost to outermost \\
+\hline
+{\em inputs} & The number of inputs to the Neural Network \\
+\hline
+{\em outputs} & The number of output nodes. \\
+\hline
+\end{DoxyParams}
+\hypertarget{network_8hpp_ae1558ccce5abde29f86c580c9d807234}{}\label{network_8hpp_ae1558ccce5abde29f86c580c9d807234} 
+\index{network.\+hpp@{network.\+hpp}!feed\+Forward@{feed\+Forward}}
+\index{feed\+Forward@{feed\+Forward}!network.\+hpp@{network.\+hpp}}
+\subsubsection{\texorpdfstring{feed\+Forward()}{feedForward()}}
+{\footnotesize\ttfamily void feed\+Forward (\begin{DoxyParamCaption}\item[{list$<$ list$<$ \hyperlink{structnode}{node} $\ast$$>$ $>$ $\ast$}]{Network\+Nodes,  }\item[{list$<$ float $>$}]{inp }\end{DoxyParamCaption})}
+
+
+
+Feeds an instance through an arbitrary network to generate an output. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Network\+Nodes} & The network to be used to generate the output for the training instance \\
+\hline
+{\em inp} & A list of inputs to the Neural Network Nodes \\
+\hline
+\end{DoxyParams}
+\hypertarget{network_8hpp_a93ce8bef732fd0a9dd5ec7abf037b978}{}\label{network_8hpp_a93ce8bef732fd0a9dd5ec7abf037b978} 
+\index{network.\+hpp@{network.\+hpp}!generate\+Error@{generate\+Error}}
+\index{generate\+Error@{generate\+Error}!network.\+hpp@{network.\+hpp}}
+\subsubsection{\texorpdfstring{generate\+Error()}{generateError()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily void generate\+Error (\begin{DoxyParamCaption}\item[{\hyperlink{structnode}{node} $\ast$}]{current,  }\item[{list$<$ \hyperlink{structnode}{node} $\ast$$>$}]{downstream }\end{DoxyParamCaption})}
+
+
+
+Sets the error of a non output network node. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em current} & The ndoe whose error is to be calculated \\
+\hline
+{\em downstream} & The list of downstream nodes, whose errors are need \\
+\hline
+\end{DoxyParams}
+\hypertarget{network_8hpp_a802001a439bf4d4bb0b3afad7547b804}{}\label{network_8hpp_a802001a439bf4d4bb0b3afad7547b804} 
+\index{network.\+hpp@{network.\+hpp}!generate\+Error@{generate\+Error}}
+\index{generate\+Error@{generate\+Error}!network.\+hpp@{network.\+hpp}}
+\subsubsection{\texorpdfstring{generate\+Error()}{generateError()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily void generate\+Error (\begin{DoxyParamCaption}\item[{\hyperlink{structnode}{node} $\ast$}]{current,  }\item[{float}]{label }\end{DoxyParamCaption})}
+
+
+
+Sets the error of an output node. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em current} & The node whose error is to be calculated \\
+\hline
+{\em label} & The output of the node that is to be learned \\
+\hline
+\end{DoxyParams}
+\hypertarget{network_8hpp_a86903efb5ab550f599618eec172c9e52}{}\label{network_8hpp_a86903efb5ab550f599618eec172c9e52} 
+\index{network.\+hpp@{network.\+hpp}!max@{max}}
+\index{max@{max}!network.\+hpp@{network.\+hpp}}
+\subsubsection{\texorpdfstring{max()}{max()}}
+{\footnotesize\ttfamily int max (\begin{DoxyParamCaption}\item[{vector$<$ float $>$}]{outs }\end{DoxyParamCaption})}
+
+
+
+Gives the classified integer from vector outputs. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em outs} & The output vector generated by the Network \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The integer specifying the classification given by te Network 
+\end{DoxyReturn}
+\hypertarget{network_8hpp_a50a5155516fd656f45421e6817357b49}{}\label{network_8hpp_a50a5155516fd656f45421e6817357b49} 
+\index{network.\+hpp@{network.\+hpp}!predict@{predict}}
+\index{predict@{predict}!network.\+hpp@{network.\+hpp}}
+\subsubsection{\texorpdfstring{predict()}{predict()}}
+{\footnotesize\ttfamily float predict (\begin{DoxyParamCaption}\item[{list$<$ list$<$ \hyperlink{structnode}{node} $\ast$$>$ $>$}]{Learned\+Network,  }\item[{list$<$ \hyperlink{struct_i_m_a_g_e}{I\+M\+A\+GE} $\ast$$>$}]{instances,  }\item[{list$<$ vector$<$ float $>$ $>$}]{labels,  }\item[{int}]{outputs }\end{DoxyParamCaption})}
+
+
+
+Gives the prediction accuracy of a Network on a Test Set. 
+
+Using a learned network, this function applies it to a test set and returns the classification accuracy obtained on the set. 
+\begin{DoxyParams}{Parameters}
+{\em Learned\+Network} & The Network that is to be tested \\
+\hline
+{\em instances} & The list of image instances that make up the test set \\
+\hline
+{\em labels} & The labels corresponding the instances of the test set \\
+\hline
+{\em outputs} & The Number of outputs nodes in the network \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The Classification Accuracy obtained 
+\end{DoxyReturn}
+\hypertarget{network_8hpp_a090940f06a6c4b23d03afca1d8b2cf10}{}\label{network_8hpp_a090940f06a6c4b23d03afca1d8b2cf10} 
+\index{network.\+hpp@{network.\+hpp}!update@{update}}
+\index{update@{update}!network.\+hpp@{network.\+hpp}}
+\subsubsection{\texorpdfstring{update()}{update()}}
+{\footnotesize\ttfamily void update (\begin{DoxyParamCaption}\item[{list$<$ list$<$ \hyperlink{structnode}{node} $\ast$$>$ $>$ $\ast$}]{Network\+Nodes,  }\item[{float}]{Learning\+Rate }\end{DoxyParamCaption})}
+
+
+
+Updates the Network according to the gradient descent rule. 
+
+Using the outputs generated in the feed forwards stage, and the errors generated in the back propogation stage. This function augments it with the learning rate to update the weights of each node in the Network in the falling direction of the gradient 
+\begin{DoxyParams}{Parameters}
+{\em Network\+Nodes} & The Network who\textquotesingle{}s weights are to be updated \\
+\hline
+{\em Learning\+Rate} & The learning rate to be applied to the Network \\
+\hline
+\end{DoxyParams}

@@ -1,0 +1,64 @@
+
+ 2 Layer, each layer with Nodes 7 Learning Rate 0.5 Iterations 200
+Accuracy First Set 0.970588
+Accuracy Second Set 0.923077
+Accuracy Average Set 0.946833
+
+ 2 Layer, each layer with Nodes 7 Learning Rate 0.5 Iterations 300
+Accuracy First Set 1
+Accuracy Second Set 0.942308
+Accuracy Average Set 0.971154
+
+ 2 Layer, each layer with Nodes 7 Learning Rate 0.8 Iterations 200
+Accuracy First Set 1
+Accuracy Second Set 0.980769
+Accuracy Average Set 0.990385
+
+ 2 Layer, each layer with Nodes 7 Learning Rate 0.8 Iterations 300
+Accuracy First Set 1
+Accuracy Second Set 0.961538
+Accuracy Average Set 0.980769
+
+ 2 Layer, each layer with Nodes 14 Learning Rate 0.5 Iterations 200
+Accuracy First Set 1
+Accuracy Second Set 0.961538
+Accuracy Average Set 0.980769
+
+ 2 Layer, each layer with Nodes 14 Learning Rate 0.5 Iterations 300
+Accuracy First Set 1
+Accuracy Second Set 0.980769
+Accuracy Average Set 0.990385
+
+ 2 Layer, each layer with Nodes 14 Learning Rate 0.8 Iterations 200
+Accuracy First Set 1
+Accuracy Second Set 0.980769
+Accuracy Average Set 0.990385
+
+ 2 Layer, each layer with Nodes 14 Learning Rate 0.8 Iterations 300
+Accuracy First Set 0.970588
+Accuracy Second Set 0.923077
+Accuracy Average Set 0.946833
+
+ 2 Layer, each layer with Nodes 21 Learning Rate 0.5 Iterations 200
+Accuracy First Set 1
+Accuracy Second Set 0.980769
+Accuracy Average Set 0.990385
+
+ 2 Layer, each layer with Nodes 21 Learning Rate 0.5 Iterations 300
+Accuracy First Set 0.970588
+Accuracy Second Set 0.923077
+Accuracy Average Set 0.946833
+
+ 2 Layer, each layer with Nodes 21 Learning Rate 0.8 Iterations 200
+Accuracy First Set 0.970588
+Accuracy Second Set 0.980769
+Accuracy Average Set 0.975679
+
+ 2 Layer, each layer with Nodes 21 Learning Rate 0.8 Iterations 300
+Accuracy First Set 1
+Accuracy Second Set 1
+Accuracy Average Set 1
+
+Maximum Accuracy on Set 1 is 1 with Nodes 7 Learning Rate 0.5 Iterations 300
+Maximum Accuracy on Set 2 is 1 with Nodes 21 Learning Rate 0.8 Iterations 300
+Maximum Average Accuracy is 1 with Nodes 21 Learning Rate 0.8 Iterations 300

@@ -1,0 +1,44 @@
+
+Two Layer, each layer with Nodes 20 Learning Rate 0.4 Iterations 200
+Accuracy First Set 0.944444
+Accuracy Second Set 0.9
+Accuracy Average Set 0.922222
+
+Two Layer, each layer with Nodes 20 Learning Rate 0.4 Iterations 350
+Accuracy First Set 0.944444
+Accuracy Second Set 0.925
+Accuracy Average Set 0.934722
+
+Two Layer, each layer with Nodes 20 Learning Rate 0.6 Iterations 200
+Accuracy First Set 0.944444
+Accuracy Second Set 0.925
+Accuracy Average Set 0.934722
+
+Two Layer, each layer with Nodes 20 Learning Rate 0.6 Iterations 350
+Accuracy First Set 1
+Accuracy Second Set 0.95
+Accuracy Average Set 0.975
+
+Two Layer, each layer with Nodes 40 Learning Rate 0.4 Iterations 200
+Accuracy First Set 0.944444
+Accuracy Second Set 0.95
+Accuracy Average Set 0.947222
+
+Two Layer, each layer with Nodes 40 Learning Rate 0.4 Iterations 350
+Accuracy First Set 0.972222
+Accuracy Second Set 0.925
+Accuracy Average Set 0.948611
+
+Two Layer, each layer with Nodes 40 Learning Rate 0.6 Iterations 200
+Accuracy First Set 0.944444
+Accuracy Second Set 0.95
+Accuracy Average Set 0.947222
+
+Two Layer, each layer with Nodes 40 Learning Rate 0.6 Iterations 350
+Accuracy First Set 0.944444
+Accuracy Second Set 0.95
+Accuracy Average Set 0.947222
+
+Maximum Accuracy on Set 1 is 1 with Nodes 20 Learning Rate 0.6 Iterations 350
+Maximum Accuracy on Set 2 is 0.95 with Nodes 20 Learning Rate 0.6 Iterations 350
+Maximum Average Accuracy is 0.975 with Nodes 20 Learning Rate 0.6 Iterations 350

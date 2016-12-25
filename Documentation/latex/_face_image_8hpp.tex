@@ -1,0 +1,157 @@
+\hypertarget{_face_image_8hpp}{}\section{src/\+Image\+Parse/\+Face\+Image.hpp File Reference}
+\label{_face_image_8hpp}\index{src/\+Image\+Parse/\+Face\+Image.\+hpp@{src/\+Image\+Parse/\+Face\+Image.\+hpp}}
+{\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include $<$stdlib.\+h$>$}\newline
+{\ttfamily \#include $<$math.\+h$>$}\newline
+{\ttfamily \#include $<$list$>$}\newline
+{\ttfamily \#include $<$vector$>$}\newline
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{struct_i_m_a_g_e}{I\+M\+A\+GE}
+\begin{DoxyCompactList}\small\item\em Representation of an Image. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{_face_image_8hpp_a7a9e324ff6c85eeb2c2bd91b2b8cbdba}{}\label{_face_image_8hpp_a7a9e324ff6c85eeb2c2bd91b2b8cbdba} 
+enum \hyperlink{_face_image_8hpp_a7a9e324ff6c85eeb2c2bd91b2b8cbdba}{P\+O\+SE} \{ {\bfseries S\+T\+R\+A\+I\+G\+HT}, 
+{\bfseries L\+E\+FT}, 
+{\bfseries R\+I\+G\+HT}, 
+{\bfseries UP}
+ \}\begin{DoxyCompactList}\small\item\em Possible Labels for the Pose classifier. \end{DoxyCompactList}
+\item 
+\hypertarget{_face_image_8hpp_a399edb09d8f16940ef62e3f2f769710b}{}\label{_face_image_8hpp_a399edb09d8f16940ef62e3f2f769710b} 
+enum \hyperlink{_face_image_8hpp_a399edb09d8f16940ef62e3f2f769710b}{F\+A\+CE} \{ \newline
+{\bfseries A\+N2I}, 
+{\bfseries A\+T33}, 
+{\bfseries B\+O\+L\+A\+ND}, 
+{\bfseries B\+PM}, 
+\newline
+{\bfseries C\+H4F}, 
+{\bfseries C\+H\+E\+Y\+ER}, 
+{\bfseries C\+H\+O\+ON}, 
+{\bfseries D\+A\+N\+I\+E\+LN}, 
+\newline
+{\bfseries G\+L\+I\+C\+K\+M\+AN}, 
+{\bfseries K\+A\+R\+Y\+A\+DI}, 
+{\bfseries K\+A\+W\+A\+M\+U\+RA}, 
+{\bfseries K\+K49}, 
+\newline
+{\bfseries M\+E\+G\+AK}, 
+{\bfseries M\+I\+T\+C\+H\+E\+LL}, 
+{\bfseries N\+I\+G\+HT}, 
+{\bfseries P\+H\+O\+E\+BE}, 
+\newline
+{\bfseries S\+A\+A\+V\+IK}, 
+{\bfseries S\+T\+E\+F\+FI}, 
+{\bfseries S\+Z24}, 
+{\bfseries T\+A\+M\+MO}
+ \}\begin{DoxyCompactList}\small\item\em Possible Labels for the Face classifier. \end{DoxyCompactList}
+\item 
+\hypertarget{_face_image_8hpp_a9bad2b87eae2a5c9dcc0b3e3a3d92229}{}\label{_face_image_8hpp_a9bad2b87eae2a5c9dcc0b3e3a3d92229} 
+enum \hyperlink{_face_image_8hpp_a9bad2b87eae2a5c9dcc0b3e3a3d92229}{S\+U\+N\+G\+L\+A\+SS} \{ {\bfseries O\+P\+EN}, 
+{\bfseries S\+U\+N\+G\+L\+A\+S\+S\+ES}
+ \}\begin{DoxyCompactList}\small\item\em Possible Labels for the Sunglass classifier. \end{DoxyCompactList}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \hyperlink{_face_image_8hpp_ab4f4f6d98070fe6a217ac771c8b8f6a1}{allocate\+Examples} (list$<$ \hyperlink{struct_i_m_a_g_e}{I\+M\+A\+GE} $\ast$$>$ $\ast$training\+Examples, list$<$ vector$<$ float $>$ $>$ $\ast$labels, int label\+Index, char $\ast$image\+List)
+\begin{DoxyCompactList}\small\item\em Stores \hyperlink{struct_i_m_a_g_e}{I\+M\+A\+GE} representations of every image location listed in given file. \end{DoxyCompactList}\item 
+\hyperlink{struct_i_m_a_g_e}{I\+M\+A\+GE} $\ast$ \hyperlink{_face_image_8hpp_a8f2c1dbdf1caaed81df994ec3fe56c81}{read\+File} (char $\ast$filename)
+\begin{DoxyCompactList}\small\item\em Parses a .pgm Image File. \end{DoxyCompactList}\item 
+float $\ast$$\ast$ \hyperlink{_face_image_8hpp_a3e40752db9fc72a340015177ee2781a1}{allocate\+Data} (int row, int col)
+\begin{DoxyCompactList}\small\item\em Function that returns emtpy allocated space for iamge data. \end{DoxyCompactList}\item 
+\hyperlink{struct_i_m_a_g_e}{I\+M\+A\+GE} $\ast$ \hyperlink{_face_image_8hpp_a0bfdf5b6bd6f08084833f4d79416c4e6}{image\+Allocate} ()
+\begin{DoxyCompactList}\small\item\em Allocates and returns a new \hyperlink{struct_i_m_a_g_e}{I\+M\+A\+GE} structure. \end{DoxyCompactList}\item 
+\hypertarget{_face_image_8hpp_a8a2cab94f3fc4c80c14d281a91cb5f64}{}\label{_face_image_8hpp_a8a2cab94f3fc4c80c14d281a91cb5f64} 
+int \hyperlink{_face_image_8hpp_a8a2cab94f3fc4c80c14d281a91cb5f64}{give\+Pose\+Label} (char label\mbox{[}$\,$\mbox{]})
+\begin{DoxyCompactList}\small\item\em Assigns integer value to the label according to the corresponding enum P\+O\+SE. \end{DoxyCompactList}\item 
+\hypertarget{_face_image_8hpp_ab603daf1437d6ecd28ee49a734c90c52}{}\label{_face_image_8hpp_ab603daf1437d6ecd28ee49a734c90c52} 
+int \hyperlink{_face_image_8hpp_ab603daf1437d6ecd28ee49a734c90c52}{give\+Face\+Label} (char token\mbox{[}$\,$\mbox{]})
+\begin{DoxyCompactList}\small\item\em Assigns integer value to the label according to the corresponding enum F\+A\+CE. \end{DoxyCompactList}\item 
+\hypertarget{_face_image_8hpp_a9e5f8be9ceca5f0bad5dee20bc4d5cf9}{}\label{_face_image_8hpp_a9e5f8be9ceca5f0bad5dee20bc4d5cf9} 
+int \hyperlink{_face_image_8hpp_a9e5f8be9ceca5f0bad5dee20bc4d5cf9}{give\+Sunglass\+Label} (char label\mbox{[}$\,$\mbox{]})
+\begin{DoxyCompactList}\small\item\em Assigns integer value to the label according to the corresponding enum S\+U\+N\+G\+L\+A\+SS. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Function Documentation}
+\hypertarget{_face_image_8hpp_a3e40752db9fc72a340015177ee2781a1}{}\label{_face_image_8hpp_a3e40752db9fc72a340015177ee2781a1} 
+\index{Face\+Image.\+hpp@{Face\+Image.\+hpp}!allocate\+Data@{allocate\+Data}}
+\index{allocate\+Data@{allocate\+Data}!Face\+Image.\+hpp@{Face\+Image.\+hpp}}
+\subsubsection{\texorpdfstring{allocate\+Data()}{allocateData()}}
+{\footnotesize\ttfamily float$\ast$$\ast$ allocate\+Data (\begin{DoxyParamCaption}\item[{int}]{row,  }\item[{int}]{col }\end{DoxyParamCaption})}
+
+
+
+Function that returns emtpy allocated space for iamge data. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em row} & The image height \\
+\hline
+{\em col} & The image width \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Float matrix of size row$\ast$col with each entry initialised to 0 
+\end{DoxyReturn}
+\hypertarget{_face_image_8hpp_ab4f4f6d98070fe6a217ac771c8b8f6a1}{}\label{_face_image_8hpp_ab4f4f6d98070fe6a217ac771c8b8f6a1} 
+\index{Face\+Image.\+hpp@{Face\+Image.\+hpp}!allocate\+Examples@{allocate\+Examples}}
+\index{allocate\+Examples@{allocate\+Examples}!Face\+Image.\+hpp@{Face\+Image.\+hpp}}
+\subsubsection{\texorpdfstring{allocate\+Examples()}{allocateExamples()}}
+{\footnotesize\ttfamily int allocate\+Examples (\begin{DoxyParamCaption}\item[{list$<$ \hyperlink{struct_i_m_a_g_e}{I\+M\+A\+GE} $\ast$$>$ $\ast$}]{training\+Examples,  }\item[{list$<$ vector$<$ float $>$ $>$ $\ast$}]{labels,  }\item[{int}]{label\+Index,  }\item[{char $\ast$}]{List\+File }\end{DoxyParamCaption})}
+
+
+
+Stores \hyperlink{struct_i_m_a_g_e}{I\+M\+A\+GE} representations of every image location listed in given file. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em training\+Examples} & A list of \hyperlink{struct_i_m_a_g_e}{I\+M\+A\+GE} constructs, one for each file specified in the image\+List \\
+\hline
+{\em labels} & A List of vectors where each vector represents the label of the corresponding image instance in the training\+Examples lis \\
+\hline
+{\em label\+Index} & Specifies which field of file name is to be used as label ~\newline
+ Face is 0 ~\newline
+ Pose is 1 ~\newline
+ Sunglasses is 3 \\
+\hline
+{\em imagelist} & File name of file which contains the list of image files to be parsed on each line. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The total number of images parsed. 
+\end{DoxyReturn}
+\hypertarget{_face_image_8hpp_a0bfdf5b6bd6f08084833f4d79416c4e6}{}\label{_face_image_8hpp_a0bfdf5b6bd6f08084833f4d79416c4e6} 
+\index{Face\+Image.\+hpp@{Face\+Image.\+hpp}!image\+Allocate@{image\+Allocate}}
+\index{image\+Allocate@{image\+Allocate}!Face\+Image.\+hpp@{Face\+Image.\+hpp}}
+\subsubsection{\texorpdfstring{image\+Allocate()}{imageAllocate()}}
+{\footnotesize\ttfamily \hyperlink{struct_i_m_a_g_e}{I\+M\+A\+GE}$\ast$ image\+Allocate (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Allocates and returns a new \hyperlink{struct_i_m_a_g_e}{I\+M\+A\+GE} structure. 
+
+Function creates an empty \hyperlink{struct_i_m_a_g_e}{I\+M\+A\+GE} structure with it\textquotesingle{}s space allocated on the heap and returns it\textquotesingle{}s location \begin{DoxyReturn}{Returns}
+\hyperlink{struct_i_m_a_g_e}{I\+M\+A\+GE} sturcture with data initialised to N\+U\+LL and other attributes to 0 
+\end{DoxyReturn}
+\hypertarget{_face_image_8hpp_a8f2c1dbdf1caaed81df994ec3fe56c81}{}\label{_face_image_8hpp_a8f2c1dbdf1caaed81df994ec3fe56c81} 
+\index{Face\+Image.\+hpp@{Face\+Image.\+hpp}!read\+File@{read\+File}}
+\index{read\+File@{read\+File}!Face\+Image.\+hpp@{Face\+Image.\+hpp}}
+\subsubsection{\texorpdfstring{read\+File()}{readFile()}}
+{\footnotesize\ttfamily \hyperlink{struct_i_m_a_g_e}{I\+M\+A\+GE}$\ast$ read\+File (\begin{DoxyParamCaption}\item[{char $\ast$}]{filename }\end{DoxyParamCaption})}
+
+
+
+Parses a .pgm Image File. 
+
+The function parses a .pgm file to return the pixel intensities and dimensions of the image as an \hyperlink{struct_i_m_a_g_e}{I\+M\+A\+GE} structure 
+\begin{DoxyParams}{Parameters}
+{\em filename} & The directory address of the file that is to be parsed \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\hyperlink{struct_i_m_a_g_e}{I\+M\+A\+GE} structure containing appropriate pixel intensity matrix and dimension data specifeid by file 
+\end{DoxyReturn}

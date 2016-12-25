@@ -1,0 +1,75 @@
+\hypertarget{network_8cpp}{}\section{src/\+Network/network.cpp File Reference}
+\label{network_8cpp}\index{src/\+Network/network.\+cpp@{src/\+Network/network.\+cpp}}
+{\ttfamily \#include \char`\"{}network.\+hpp\char`\"{}}\newline
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+list$<$ list$<$ \hyperlink{structnode}{node} $\ast$ $>$ $>$ \hyperlink{network_8cpp_a283d3acce6e70fd14d373ede9818d64c}{Backpropogation\+Driver} (list$<$ \hyperlink{struct_i_m_a_g_e}{I\+M\+A\+GE} $\ast$$>$ $\ast$training\+Examples, list$<$ vector$<$ float $>$ $>$ $\ast$labels, int inputs, int iterations, list$<$ int $>$ layer\+Nodes, float Learning\+Rate, int outputs)
+\begin{DoxyCompactList}\small\item\em Driver Function for learning the Neural Network. \end{DoxyCompactList}\item 
+\hypertarget{network_8cpp_ae18d105356d4d3e7730d931fce4bfb23}{}\label{network_8cpp_ae18d105356d4d3e7730d931fce4bfb23} 
+float {\bfseries sigmoid} (float x)
+\item 
+\hypertarget{network_8cpp_a05e2845b9bcec5cf18620ff987470eaa}{}\label{network_8cpp_a05e2845b9bcec5cf18620ff987470eaa} 
+void {\bfseries generate\+Output} (\hyperlink{structnode}{node} $\ast$current, list$<$ float $>$ inputs)
+\item 
+\hypertarget{network_8cpp_a802001a439bf4d4bb0b3afad7547b804}{}\label{network_8cpp_a802001a439bf4d4bb0b3afad7547b804} 
+void {\bfseries generate\+Error} (\hyperlink{structnode}{node} $\ast$current, float label)
+\item 
+\hypertarget{network_8cpp_a93ce8bef732fd0a9dd5ec7abf037b978}{}\label{network_8cpp_a93ce8bef732fd0a9dd5ec7abf037b978} 
+void {\bfseries generate\+Error} (\hyperlink{structnode}{node} $\ast$current, list$<$ \hyperlink{structnode}{node} $\ast$$>$ downstream)
+\item 
+\hypertarget{network_8cpp_a22e08c3d896915b672c0d21ca26c78cf}{}\label{network_8cpp_a22e08c3d896915b672c0d21ca26c78cf} 
+\hyperlink{structnode}{node} $\ast$ {\bfseries allocate\+Node} (int index, int inputs)
+\item 
+\hypertarget{network_8cpp_a2a8c97babcc01d2d1074e368b60136b4}{}\label{network_8cpp_a2a8c97babcc01d2d1074e368b60136b4} 
+void {\bfseries Create\+Network} (list$<$ list$<$ \hyperlink{structnode}{node} $\ast$$>$ $>$ $\ast$Network\+Nodes, list$<$ int $>$ layer\+Nodes, int inputs, int outputs)
+\item 
+\hypertarget{network_8cpp_ae1558ccce5abde29f86c580c9d807234}{}\label{network_8cpp_ae1558ccce5abde29f86c580c9d807234} 
+void {\bfseries feed\+Forward} (list$<$ list$<$ \hyperlink{structnode}{node} $\ast$$>$ $>$ $\ast$Network\+Nodes, list$<$ float $>$ inp)
+\item 
+\hypertarget{network_8cpp_a7155df24bb8efb6d0b5881a494e1da04}{}\label{network_8cpp_a7155df24bb8efb6d0b5881a494e1da04} 
+void {\bfseries back\+Prop} (list$<$ list$<$ \hyperlink{structnode}{node} $\ast$$>$ $>$ $\ast$Network\+Nodes, vector$<$ float $>$ label)
+\item 
+\hypertarget{network_8cpp_a090940f06a6c4b23d03afca1d8b2cf10}{}\label{network_8cpp_a090940f06a6c4b23d03afca1d8b2cf10} 
+void {\bfseries update} (list$<$ list$<$ \hyperlink{structnode}{node} $\ast$$>$ $>$ $\ast$Network\+Nodes, float Learning\+Rate)
+\item 
+\hypertarget{network_8cpp_a86903efb5ab550f599618eec172c9e52}{}\label{network_8cpp_a86903efb5ab550f599618eec172c9e52} 
+int {\bfseries max} (vector$<$ float $>$ outs)
+\item 
+\hypertarget{network_8cpp_a50a5155516fd656f45421e6817357b49}{}\label{network_8cpp_a50a5155516fd656f45421e6817357b49} 
+float {\bfseries predict} (list$<$ list$<$ \hyperlink{structnode}{node} $\ast$$>$ $>$ Learned\+Network, list$<$ \hyperlink{struct_i_m_a_g_e}{I\+M\+A\+GE} $\ast$$>$ instances, list$<$ vector$<$ float $>$ $>$ labels, int outputs)
+\end{DoxyCompactItemize}
+
+
+\subsection{Function Documentation}
+\hypertarget{network_8cpp_a283d3acce6e70fd14d373ede9818d64c}{}\label{network_8cpp_a283d3acce6e70fd14d373ede9818d64c} 
+\index{network.\+cpp@{network.\+cpp}!Backpropogation\+Driver@{Backpropogation\+Driver}}
+\index{Backpropogation\+Driver@{Backpropogation\+Driver}!network.\+cpp@{network.\+cpp}}
+\subsubsection{\texorpdfstring{Backpropogation\+Driver()}{BackpropogationDriver()}}
+{\footnotesize\ttfamily list$<$ list$<$\hyperlink{structnode}{node} $\ast$$>$ $>$ Backpropogation\+Driver (\begin{DoxyParamCaption}\item[{list$<$ \hyperlink{struct_i_m_a_g_e}{I\+M\+A\+GE} $\ast$$>$ $\ast$}]{training\+Examples,  }\item[{list$<$ vector$<$ float $>$ $>$ $\ast$}]{labels,  }\item[{int}]{inputs,  }\item[{int}]{iterations,  }\item[{list$<$ int $>$}]{layer\+Nodes,  }\item[{float}]{Learning\+Rate,  }\item[{int}]{outputs }\end{DoxyParamCaption})}
+
+
+
+Driver Function for learning the Neural Network. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em training\+Examples} & \\
+\hline
+{\em labels} & \\
+\hline
+{\em inputs} & \\
+\hline
+{\em iterations} & \\
+\hline
+{\em layer\+Nodes} & \\
+\hline
+{\em Learning\+Rate} & \\
+\hline
+{\em outputs} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A list of layers of the learned network from innermost to outermost, the end of the list specifies the output layer. ~\newline
+ Each layer consists of a list of network nodes in the order of their layer Index. 
+\end{DoxyReturn}

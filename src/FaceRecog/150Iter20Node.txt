@@ -1,4 +1,0 @@
-
-Accuracy First Set 0.972222
-Accuracy Second Set 0.925
-Accuracy Average Set 0.948611

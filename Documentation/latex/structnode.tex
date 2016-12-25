@@ -1,0 +1,90 @@
+\hypertarget{structnode}{}\section{node Struct Reference}
+\label{structnode}\index{node@{node}}
+
+
+Representation of a Network node.  
+
+
+
+
+{\ttfamily \#include $<$network.\+hpp$>$}
+
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+vector$<$ float $>$ $\ast$ \hyperlink{structnode_a641a543a1870b1daa208ca9a6bf456c7}{weights}
+\begin{DoxyCompactList}\small\item\em The weights associated with the node at the progressing iteration of the network. \end{DoxyCompactList}\item 
+vector$<$ float $>$ $\ast$ \hyperlink{structnode_a86d96e3a79362efaad880cbf8ab1bc82}{inputs}
+\begin{DoxyCompactList}\small\item\em The inputs that were used in the feed forwards stage and will be used in the update stage of the same iteration. \end{DoxyCompactList}\item 
+float \hyperlink{structnode_a3e5a0f865fedde6b380007420c5f5e0d}{error}
+\begin{DoxyCompactList}\small\item\em The error as calculated during the backpropogation stage. \end{DoxyCompactList}\item 
+float \hyperlink{structnode_a75af99a1fe4193c4ba2e85ba767a859d}{output}
+\begin{DoxyCompactList}\small\item\em The output of the node. \end{DoxyCompactList}\item 
+\hypertarget{structnode_a409c8b257d1f7afb9a2cb673c2996f34}{}\label{structnode_a409c8b257d1f7afb9a2cb673c2996f34} 
+int \hyperlink{structnode_a409c8b257d1f7afb9a2cb673c2996f34}{layer\+Index}
+\begin{DoxyCompactList}\small\item\em Index Within the Layer;. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Representation of a Network node. 
+
+Contains all the information needed to uniquely identify a node within a layer. Each layer will be identified by it\textquotesingle{}s own list and hence no layer identifier is needed within the structure 
+
+\subsection{Member Data Documentation}
+\hypertarget{structnode_a3e5a0f865fedde6b380007420c5f5e0d}{}\label{structnode_a3e5a0f865fedde6b380007420c5f5e0d} 
+\index{node@{node}!error@{error}}
+\index{error@{error}!node@{node}}
+\subsubsection{\texorpdfstring{error}{error}}
+{\footnotesize\ttfamily float node\+::error}
+
+
+
+The error as calculated during the backpropogation stage. 
+
+\begin{DoxySeeAlso}{See also}
+\hyperlink{network_8hpp_a7155df24bb8efb6d0b5881a494e1da04}{back\+Prop} 
+\end{DoxySeeAlso}
+\hypertarget{structnode_a86d96e3a79362efaad880cbf8ab1bc82}{}\label{structnode_a86d96e3a79362efaad880cbf8ab1bc82} 
+\index{node@{node}!inputs@{inputs}}
+\index{inputs@{inputs}!node@{node}}
+\subsubsection{\texorpdfstring{inputs}{inputs}}
+{\footnotesize\ttfamily vector$<$float$>$$\ast$ node\+::inputs}
+
+
+
+The inputs that were used in the feed forwards stage and will be used in the update stage of the same iteration. 
+
+\begin{DoxySeeAlso}{See also}
+\hyperlink{network_8hpp_a090940f06a6c4b23d03afca1d8b2cf10}{update} 
+\end{DoxySeeAlso}
+\hypertarget{structnode_a75af99a1fe4193c4ba2e85ba767a859d}{}\label{structnode_a75af99a1fe4193c4ba2e85ba767a859d} 
+\index{node@{node}!output@{output}}
+\index{output@{output}!node@{node}}
+\subsubsection{\texorpdfstring{output}{output}}
+{\footnotesize\ttfamily float node\+::output}
+
+
+
+The output of the node. 
+
+\begin{DoxySeeAlso}{See also}
+generate\+Output 
+\end{DoxySeeAlso}
+\hypertarget{structnode_a641a543a1870b1daa208ca9a6bf456c7}{}\label{structnode_a641a543a1870b1daa208ca9a6bf456c7} 
+\index{node@{node}!weights@{weights}}
+\index{weights@{weights}!node@{node}}
+\subsubsection{\texorpdfstring{weights}{weights}}
+{\footnotesize\ttfamily vector$<$float$>$$\ast$ node\+::weights}
+
+
+
+The weights associated with the node at the progressing iteration of the network. 
+
+\begin{DoxySeeAlso}{See also}
+\hyperlink{network_8hpp_a090940f06a6c4b23d03afca1d8b2cf10}{update} 
+\end{DoxySeeAlso}
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+src/\+Network/\hyperlink{network_8hpp}{network.\+hpp}\end{DoxyCompactItemize}

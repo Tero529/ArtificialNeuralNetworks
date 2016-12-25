@@ -1,0 +1,76 @@
+\hypertarget{_face_image_8cpp}{}\section{src/\+Image\+Parse/\+Face\+Image.cpp File Reference}
+\label{_face_image_8cpp}\index{src/\+Image\+Parse/\+Face\+Image.\+cpp@{src/\+Image\+Parse/\+Face\+Image.\+cpp}}
+{\ttfamily \#include \char`\"{}Face\+Image.\+hpp\char`\"{}}\newline
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+float $\ast$$\ast$ \hyperlink{_face_image_8cpp_a3e40752db9fc72a340015177ee2781a1}{allocate\+Data} (int row, int col)
+\begin{DoxyCompactList}\small\item\em Function to store pixel information of image. \end{DoxyCompactList}\item 
+\hyperlink{struct_i_m_a_g_e}{I\+M\+A\+GE} $\ast$ \hyperlink{_face_image_8cpp_a0bfdf5b6bd6f08084833f4d79416c4e6}{image\+Allocate} ()
+\item 
+\hyperlink{struct_i_m_a_g_e}{I\+M\+A\+GE} $\ast$ \hyperlink{_face_image_8cpp_a8f2c1dbdf1caaed81df994ec3fe56c81}{read\+File} (char $\ast$filename)
+\item 
+int \hyperlink{_face_image_8cpp_a8a2cab94f3fc4c80c14d281a91cb5f64}{give\+Pose\+Label} (char label\mbox{[}$\,$\mbox{]})
+\item 
+int \hyperlink{_face_image_8cpp_a9e5f8be9ceca5f0bad5dee20bc4d5cf9}{give\+Sunglass\+Label} (char label\mbox{[}$\,$\mbox{]})
+\item 
+int \hyperlink{_face_image_8cpp_ab603daf1437d6ecd28ee49a734c90c52}{give\+Face\+Label} (char token\mbox{[}$\,$\mbox{]})
+\item 
+int \hyperlink{_face_image_8cpp_a05c475f6ffd52fcdce6ab1245c3940fb}{allocate\+Examples} (list$<$ \hyperlink{struct_i_m_a_g_e}{I\+M\+A\+GE} $\ast$$>$ $\ast$training\+Examples, list$<$ vector$<$ float $>$ $>$ $\ast$labels, int label\+Index, char $\ast$List\+File)
+\end{DoxyCompactItemize}
+
+
+\subsection{Function Documentation}
+\hypertarget{_face_image_8cpp_a3e40752db9fc72a340015177ee2781a1}{}\label{_face_image_8cpp_a3e40752db9fc72a340015177ee2781a1} 
+\index{Face\+Image.\+cpp@{Face\+Image.\+cpp}!allocate\+Data@{allocate\+Data}}
+\index{allocate\+Data@{allocate\+Data}!Face\+Image.\+cpp@{Face\+Image.\+cpp}}
+\subsubsection{\texorpdfstring{allocate\+Data()}{allocateData()}}
+{\footnotesize\ttfamily float$\ast$$\ast$ allocate\+Data (\begin{DoxyParamCaption}\item[{int}]{row,  }\item[{int}]{col }\end{DoxyParamCaption})}
+
+
+
+Function to store pixel information of image. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em row} & The image height \\
+\hline
+{\em col} & The image width \\
+\hline
+\end{DoxyParams}
+\hypertarget{_face_image_8cpp_a05c475f6ffd52fcdce6ab1245c3940fb}{}\label{_face_image_8cpp_a05c475f6ffd52fcdce6ab1245c3940fb} 
+\index{Face\+Image.\+cpp@{Face\+Image.\+cpp}!allocate\+Examples@{allocate\+Examples}}
+\index{allocate\+Examples@{allocate\+Examples}!Face\+Image.\+cpp@{Face\+Image.\+cpp}}
+\subsubsection{\texorpdfstring{allocate\+Examples()}{allocateExamples()}}
+{\footnotesize\ttfamily int allocate\+Examples (\begin{DoxyParamCaption}\item[{list$<$ \hyperlink{struct_i_m_a_g_e}{I\+M\+A\+GE} $\ast$$>$ $\ast$}]{training\+Examples,  }\item[{list$<$ vector$<$ float $>$ $>$ $\ast$}]{labels,  }\item[{int}]{label\+Index,  }\item[{char $\ast$}]{List\+File }\end{DoxyParamCaption})}
+
+Label Index (indexed at 0) Specifies which field of file name is label Face is 0 Pose is 1 Sunglasses is 3 \hypertarget{_face_image_8cpp_ab603daf1437d6ecd28ee49a734c90c52}{}\label{_face_image_8cpp_ab603daf1437d6ecd28ee49a734c90c52} 
+\index{Face\+Image.\+cpp@{Face\+Image.\+cpp}!give\+Face\+Label@{give\+Face\+Label}}
+\index{give\+Face\+Label@{give\+Face\+Label}!Face\+Image.\+cpp@{Face\+Image.\+cpp}}
+\subsubsection{\texorpdfstring{give\+Face\+Label()}{giveFaceLabel()}}
+{\footnotesize\ttfamily int give\+Face\+Label (\begin{DoxyParamCaption}\item[{char}]{token\mbox{[}$\,$\mbox{]} }\end{DoxyParamCaption})}
+
+\hypertarget{_face_image_8cpp_a8a2cab94f3fc4c80c14d281a91cb5f64}{}\label{_face_image_8cpp_a8a2cab94f3fc4c80c14d281a91cb5f64} 
+\index{Face\+Image.\+cpp@{Face\+Image.\+cpp}!give\+Pose\+Label@{give\+Pose\+Label}}
+\index{give\+Pose\+Label@{give\+Pose\+Label}!Face\+Image.\+cpp@{Face\+Image.\+cpp}}
+\subsubsection{\texorpdfstring{give\+Pose\+Label()}{givePoseLabel()}}
+{\footnotesize\ttfamily int give\+Pose\+Label (\begin{DoxyParamCaption}\item[{char}]{label\mbox{[}$\,$\mbox{]} }\end{DoxyParamCaption})}
+
+\hypertarget{_face_image_8cpp_a9e5f8be9ceca5f0bad5dee20bc4d5cf9}{}\label{_face_image_8cpp_a9e5f8be9ceca5f0bad5dee20bc4d5cf9} 
+\index{Face\+Image.\+cpp@{Face\+Image.\+cpp}!give\+Sunglass\+Label@{give\+Sunglass\+Label}}
+\index{give\+Sunglass\+Label@{give\+Sunglass\+Label}!Face\+Image.\+cpp@{Face\+Image.\+cpp}}
+\subsubsection{\texorpdfstring{give\+Sunglass\+Label()}{giveSunglassLabel()}}
+{\footnotesize\ttfamily int give\+Sunglass\+Label (\begin{DoxyParamCaption}\item[{char}]{label\mbox{[}$\,$\mbox{]} }\end{DoxyParamCaption})}
+
+\hypertarget{_face_image_8cpp_a0bfdf5b6bd6f08084833f4d79416c4e6}{}\label{_face_image_8cpp_a0bfdf5b6bd6f08084833f4d79416c4e6} 
+\index{Face\+Image.\+cpp@{Face\+Image.\+cpp}!image\+Allocate@{image\+Allocate}}
+\index{image\+Allocate@{image\+Allocate}!Face\+Image.\+cpp@{Face\+Image.\+cpp}}
+\subsubsection{\texorpdfstring{image\+Allocate()}{imageAllocate()}}
+{\footnotesize\ttfamily \hyperlink{struct_i_m_a_g_e}{I\+M\+A\+GE}$\ast$ image\+Allocate (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\hypertarget{_face_image_8cpp_a8f2c1dbdf1caaed81df994ec3fe56c81}{}\label{_face_image_8cpp_a8f2c1dbdf1caaed81df994ec3fe56c81} 
+\index{Face\+Image.\+cpp@{Face\+Image.\+cpp}!read\+File@{read\+File}}
+\index{read\+File@{read\+File}!Face\+Image.\+cpp@{Face\+Image.\+cpp}}
+\subsubsection{\texorpdfstring{read\+File()}{readFile()}}
+{\footnotesize\ttfamily \hyperlink{struct_i_m_a_g_e}{I\+M\+A\+GE}$\ast$ read\+File (\begin{DoxyParamCaption}\item[{char $\ast$}]{filename }\end{DoxyParamCaption})}
+

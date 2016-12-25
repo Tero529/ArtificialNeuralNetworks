@@ -1,0 +1,51 @@
+Two Layer,each layer with Nodes 14 Learning Rate 0.4 Iterations 200
+Accuracy First Set 0.906475
+Accuracy Second Set 0.9375
+Accuracy Average Set 0.921987
+Two Layer,each layer with Nodes 14 Learning Rate 0.4 Iterations 400
+Accuracy First Set 0.935252
+Accuracy Second Set 0.942308
+Accuracy Average Set 0.93878
+Two Layer,each layer with Nodes 14 Learning Rate 0.55 Iterations 200
+Accuracy First Set 0.820144
+Accuracy Second Set 0.870192
+Accuracy Average Set 0.845168
+Two Layer,each layer with Nodes 14 Learning Rate 0.55 Iterations 400
+Accuracy First Set 0.877698
+Accuracy Second Set 0.923077
+Accuracy Average Set 0.900387
+Two Layer,each layer with Nodes 14 Learning Rate 0.7 Iterations 200
+Accuracy First Set 0.870504
+Accuracy Second Set 0.923077
+Accuracy Average Set 0.89679
+Two Layer,each layer with Nodes 14 Learning Rate 0.7 Iterations 400
+Accuracy First Set 0.906475
+Accuracy Second Set 0.947115
+Accuracy Average Set 0.926795
+Two Layer,each layer with Nodes 21 Learning Rate 0.4 Iterations 200
+Accuracy First Set 0.906475
+Accuracy Second Set 0.918269
+Accuracy Average Set 0.912372
+Two Layer,each layer with Nodes 21 Learning Rate 0.4 Iterations 400
+Accuracy First Set 0.899281
+Accuracy Second Set 0.951923
+Accuracy Average Set 0.925602
+Two Layer,each layer with Nodes 21 Learning Rate 0.55 Iterations 200
+Accuracy First Set 0.892086
+Accuracy Second Set 0.947115
+Accuracy Average Set 0.919601
+Two Layer,each layer with Nodes 21 Learning Rate 0.55 Iterations 400
+Accuracy First Set 0.913669
+Accuracy Second Set 0.947115
+Accuracy Average Set 0.930392
+Two Layer,each layer with Nodes 21 Learning Rate 0.7 Iterations 200
+Accuracy First Set 0.920863
+Accuracy Second Set 0.951923
+Accuracy Average Set 0.936393
+Two Layer,each layer with Nodes 21 Learning Rate 0.7 Iterations 400
+Accuracy First Set 0.877698
+Accuracy Second Set 0.932692
+Accuracy Average Set 0.905195
+Maximum Accuracy on Set 1 is 0.935252 with Nodes 14 Learning Rate 0.4 Iterations 400
+Maximum Accuracy on Set 2 is 0.951923 with Nodes 21 Learning Rate 0.4 Iterations 400
+Maximum Average Accuracy is 0.93878 with Nodes 14 Learning Rate 0.4 Iterations 400
